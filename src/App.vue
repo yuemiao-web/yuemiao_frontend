@@ -43,7 +43,7 @@
           </el-form-item>
           <el-form-item label="针次" prop="ftime">
             <el-select placeholder="请选择接种针次" v-model="formData.ftime" class="w-full">
-              <el-option v-for="i in ftimeNum" :label="`第${i}针`" :value="i"></el-option>
+              <el-option v-for="i in ftimeNum" :key="i" :label="`第${i}针`" :value="i"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
@@ -137,7 +137,7 @@ export default defineComponent({
         }
       ]
     }
-    const formRule = ref<ObjectConstructor>({})
+    const formRule = ref<any>({})
     const form = ref<any>(null)
 
     const cityCascader = ref<any>(null)

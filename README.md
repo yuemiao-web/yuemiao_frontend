@@ -8,4 +8,4 @@
 
 ## 启动开发环境
 1. yarn install
-2. yarn serve
+2. yarn dev

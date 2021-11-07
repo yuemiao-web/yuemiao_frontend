@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import legacy from '@vitejs/plugin-legacy'
 import styleImport from 'vite-plugin-style-import'
 
 const path = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   server: {
     proxy: {
       '/miao': 'http://localhost:8000'
@@ -30,6 +32,13 @@ export default defineConfig({
           },
         }
       ]
+    }),
+    legacy({
+      targets: ['defaults', 'not IE 11']
     })
-  ]
+  ],
+  build: {
+    target: 'es2015',
+    minify: false,
+  }
 })
